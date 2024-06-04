@@ -1,8 +1,8 @@
 {
   "manifest_version":3,
-  "name":"Demo",
+  "name":"GradeBot.ai",
   "version":"1.0.0",
-  "description":"My Extension",
+  "description":"Automated Grading using NLP",
   "action": {
     "default_popup": "index.html",
     "default_title": "Open"
