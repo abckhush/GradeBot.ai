@@ -34,11 +34,16 @@ function Login() {
     }
   };
 
+  const handleBackToHome = () => {
+    navigate('/');
+  };
+
   return (
     <div className="login-container">
-      <h1>Login</h1>
+      <button className="back-button" onClick={handleBackToHome}>×</button>
+      <h1>LOGIN</h1>
       <form onSubmit={handleLogin}>
-        <div>
+        <div className='login-email'>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -49,7 +54,7 @@ function Login() {
             required
           />
         </div>
-        <div>
+        <div className='login-pass'>
           <label htmlFor="password">Password:</label>
           <input
             type="password"

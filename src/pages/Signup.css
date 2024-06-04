@@ -1,62 +1,81 @@
 .signup-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    text-align: center;
-  }
+  margin:0 0 0 0;
+  padding: 0 0 0 0;
+  height:100%;
+  width: 258px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #20232a;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+  text-align: center;
+}
   
-  .back-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #555;
-  }
+.back-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin-top: 0;
+  margin-right: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #20232a;
+}
   
-  .back-button:hover {
-    color: #000;
-  }
+.back-button:hover {
+  color: #383f54;
+}
   
-  form div {
-    margin-bottom: 15px;
-    text-align: left;
-  }
+form div {
+  margin-bottom: 15px;
+  text-align: left;
+}
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 15px;
+}
   
-  input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
   
-  button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
+button[type="submit"] {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #20232a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
   
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
+button[type="submit"]:hover {
+  background-color: #383f54;
+}
   
-  .error-message {
-    color: red;
-    margin-bottom: 15px;
-  }
+.error-message {
+  color: red;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.signup-email, .signup-pass{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.signup-user{
+  margin-top: 0;
+  padding-top: 10px;
+}

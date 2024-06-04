@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignUp.css';  // Import a CSS file for styling
+import './SignUp.css'; 
 
 function SignUp() {
   const navigate = useNavigate();
@@ -30,10 +30,8 @@ function SignUp() {
       });
 
       if (response.ok) {
-        // Navigate to login page on successful registration
         navigate('/login');
       } else {
-        // Handle errors
         const result = await response.json();
         setError(result.message || 'Registration failed');
       }
@@ -45,9 +43,9 @@ function SignUp() {
   return (
     <div className="signup-container">
       <button className="back-button" onClick={handleBackToHome}>×</button>
-      <h1>Sign Up</h1>
+      <h1>SIGN UP</h1>
       <form onSubmit={handleSignUp}>
-        <div>
+        <div className='signup-user'>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -58,7 +56,7 @@ function SignUp() {
             required
           />
         </div>
-        <div>
+        <div className='signup-email'>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -69,7 +67,7 @@ function SignUp() {
             required
           />
         </div>
-        <div>
+        <div className='signup-pass'>
           <label htmlFor="password">Password:</label>
           <input
             type="password"
