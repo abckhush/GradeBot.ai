@@ -2,7 +2,7 @@ const fs = require('fs');
 const axios = require('axios');
 const FormData = require('form-data');
 
-const url = 'https://fb9f-2409-40c0-107a-9530-f14d-ac2-e26f-a39a.ngrok-free.app/grade';
+const url = 'https://3deb-2409-40c0-78-62da-15b0-7a85-a1a6-b299.ngrok-free.app/grade';
 const zipFilePath = process.argv[2];
 const pdfFilePath = process.argv[3];
 

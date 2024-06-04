@@ -1,0 +1,122 @@
+.back-button {
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    margin-top: 0;
+    margin-right: 0;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #20232a;
+}
+  
+.back-button:hover {
+    color: #383f54;
+}
+
+.csv-container {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 300px;
+}
+  
+.csv-header{
+    margin-top: -40px;
+    padding-top:0;
+    width: 100%;
+    height: 40px;
+    border: 1.5px solid #20232a;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+}
+  
+.icon-csv-head{
+    flex:1;
+    align-items: flex-start;
+    margin-left: 0px;
+    padding-left: 4px;
+    margin-top: -10px;
+}
+  
+.icon-csv-head h3{
+    display: inline-block;
+    margin-top: -10px;
+    text-align: center;
+    padding-top: -20px;
+}
+  
+.user-info{
+    flex:1;
+    align-items: flex-end;
+    margin-right: -10px;
+    padding-right: 0px;
+    padding-left: 70px;
+    padding-top: 0px;
+    margin-top: -12px;
+}
+  
+.csv-icon{
+    padding-top: 15px;
+    height: 25px;
+    width: 25px;
+    padding-left: 0;
+    margin-left: 0;
+}
+  
+.csv-foot{
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.csv-filess {
+    margin-top: 10px;
+    text-align: left;
+}
+  
+.csv-filess h3{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.csv-filess ul {
+    padding-top: 10px;
+    list-style: none;
+    padding: 0;
+}
+  
+.csv-filess li {
+    padding-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+  
+.csv-filess a {
+    color: #20232a;
+    text-decoration: none;
+}
+  
+.csv-filess a:hover {
+    text-decoration: underline;
+}
+ 
+.csv-logout{
+    text-decoration: underline;
+    color: #20232a;
+    background-color: transparent;
+    border-radius: none;
+    margin-left: 0;
+    padding-left:5px;
+    font-size: 12px;
+}
+
+.csv-text{
+    margin-top: 0;
+    padding-top: 10px;
+    text-align: start;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+}

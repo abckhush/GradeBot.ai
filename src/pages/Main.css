@@ -71,13 +71,27 @@
 .upload-input {
   display: none;
 }
+
+.csv{
+  text-decoration: underline;
+  color: #383f54;
+  background-color: transparent;
+  border-radius: none;
+  margin-left: 0;
+  padding-left:5px;
+  font-size: 14px;
+}
+
+.csv:hover{
+  color:#2e3341;
+}
   
 .main-foot{
-  padding-top: 30px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .main-logout{

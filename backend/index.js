@@ -29,6 +29,13 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+const csvDataSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    csvData: { type: String, required: true }
+});
+
+const CsvData = mongoose.model('CsvData', csvDataSchema);
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -90,18 +97,59 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.post('/upload-files', upload.fields([{ name: 'zipFile' }, { name: 'pdfFile' }]), (req, res) => {
+app.post('/upload-files', upload.fields([{ name: 'zipFile' }, { name: 'pdfFile' }]), async (req, res) => {
+    const token = req.headers.authorization.split(" ")[1];
+    let userId;
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        userId = decoded.id;
+    } catch (err) {
+        return res.status(401).json({ message: 'Invalid token' });
+    }
+
     const zipFilePath = req.files.zipFile[0].path;
     const pdfFilePath = req.files.pdfFile[0].path;
 
-    execFile('node', ['api_call.js', zipFilePath, pdfFilePath], (error, stdout, stderr) => {
+    execFile('node', ['api_call.js', zipFilePath, pdfFilePath], async (error, stdout, stderr) => {
         if (error) {
             console.error('Error executing api_call.js:', error);
-            return res.status(500).send('Error processing files.');
+            return res.status(500).json({ message: 'Error processing files.' });
         }
-        console.log('api_call.js output:', stdout);
-        res.json({ csvData: stdout });
+
+        if (!stdout) {
+            return res.status(400).json({ message: 'CSV data is empty.' });
+        }
+
+        try {
+            const csvData = new CsvData({ userId, csvData: stdout });
+            await csvData.save();
+            res.json({ csvData: stdout });
+        } catch (err) {
+            console.error('Error saving CSV data:', err);
+            res.status(500).json({ message: 'Error saving CSV data.' });
+        }
     });
+});
+
+app.get('/csv-files', async (req, res) => {
+    const token = req.headers.authorization.split(" ")[1];
+    let userId;
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        userId = decoded.id;
+    } catch (err) {
+        return res.status(401).json({ message: 'Invalid token' });
+    }
+
+    try {
+        const csvFiles = await CsvData.find({ userId }).select('csvData createdAt');
+        res.json(csvFiles);
+    } catch (err) {
+        console.error('Error fetching CSV files:', err);
+        res.status(500).json({ message: 'Error fetching CSV files.' });
+    }
 });
 
 const PORT = process.env.PORT || 5000;

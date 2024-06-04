@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SignUp from './pages/Signup';
 import Login from './pages/Login';
 import Main from './pages/Main';
+import FetchCSV from './pages/FetchCSV';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/csv-files" element={<FetchCSV />} />
       </Routes>
     </div>
   );

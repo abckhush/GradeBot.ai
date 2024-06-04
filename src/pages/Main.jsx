@@ -37,6 +37,10 @@ const Main = () => {
     }
   };
 
+  const handleCSVClick = () => {
+    navigate('/csv-files');
+  };
+
   const handleFileUpload = async () => {
     if (!zipFile || !pdfFile) {
       alert('Please select both ZIP and PDF files.');
@@ -47,14 +51,24 @@ const Main = () => {
     formData.append('zipFile', zipFile);
     formData.append('pdfFile', pdfFile);
 
+    const token = localStorage.getItem('token');
+
     try {
       const response = await fetch('http://localhost:5000/upload-files', {
         method: 'POST',
         body: formData,
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
 
-      const result = await response.json();
-      setResult(result);
+      if (response.ok) {
+        const result = await response.json();
+        setResult(result);
+    } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message}`);
+    }
     } catch (error) {
       console.error('Error uploading files:', error);
     }
@@ -74,6 +88,7 @@ const Main = () => {
       <div className="main-text">
         <h3>Hi, {username}.</h3>
         <p>GradeBot is here to help you with grading answers. Let's make your task easy. Shall we?</p>
+        <button className="csv" onClick={handleCSVClick}>Preview Previous CSV Files</button>
       </div>
       <div className='main-foot'>
         <div className="upload-icon">
@@ -103,11 +118,11 @@ const Main = () => {
           />
         </div>
       </div>
-      <button onClick={handleFileUpload}>Upload Files</button>
+      <button onClick={handleFileUpload}>Submit Answers</button>
 
       {result && (
         <div className="result">
-          <p>Files processed successfully.</p>
+          <p>Grades calculated successfully.</p>
           <a href={`data:text/csv;charset=utf-8,${encodeURIComponent(result.csvData)}`} download="grading_results.csv"><span>Download CSV</span></a>
         </div>
       )}
