@@ -22,8 +22,10 @@ function Login() {
           password,
         }),
       });
-
+      const data = await response.json();
       if (response.ok) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('username', data.username);
         navigate('/main');
       } else {
         const result = await response.json();

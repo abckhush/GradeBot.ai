@@ -115,4 +115,13 @@
   color: #20232a;
   font-weight: bold;
   font-style: normal;
+  text-decoration: underline;
+}
+
+.result span:hover{
+  color: #383f54;
+}
+
+.result a{
+  text-decoration: none;
 }
