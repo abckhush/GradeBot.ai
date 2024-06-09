@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# GradeBot.AI: Automated Grading with NLP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+GradeBot.AI is a web extension for Google Classroom that revolutionizes grading. It uses natural language processing (NLP) to automate the grading of essays, multiple-choice questions, online assignments, and examinations. 
 
-## Available Scripts
+## Features
+- Actionable reports: Identify common student blunders and tailor an assignment to pay attention to the topic.
+- Improved Answers: Answers with a perfect score can be improved using the keywords and provided to weak students.
+- Generate targeted feedback: Offer students personalized suggestions for improvement.
+- Chapter-wise breakdown: Insights into how the students performed on the chapter-wise keywords.
 
-In the project directory, you can run:
+## Installation
+1. Clone the repository
+   ```bash
+   git clone https://github.com/abckhush/GradeBot.ai.git
+   cd GradeBot.ai
+2. Install Dependencies
+   ```bash
+   npm install
+   npm run build
+3. Connect to Backend Server
+   ```bash
+   cd backend
+   nodemon index.js
 
-### `npm start`
+## Running the Chrome Extension
+   - Go to <a href="chrome://extensions/">Chrome Extensions</a>.
+   - Turn on the Developer Mode.
+   - Choose Load Unpacked.
+   - Choose the build folder inside the code.
+   - Upload the zip file and the pdf file.
+     For refernce, a zip file and a pdf file has been uploaded in the uploads folder in the backend.
+     ```bash
+     cd backend\uploads
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Additional Documentations
+- <a href="https://github.com/JastegSingh19/Grading_Backend">Python Model for Backend</a>: Consists of utilization of YouData.ai Dataset.
+- <a href="https://www.youtube.com/watch?v=2W1Iphbx6r0">Youtube Video</a>
+- <a href="https://medium.com/@kalra.khushi12/gradebot-ai-humanaizehackathon-773a0799c50c">Medium Blog</a>
