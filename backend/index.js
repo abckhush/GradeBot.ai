@@ -31,7 +31,8 @@ const User = mongoose.model('User', userSchema);
 
 const csvDataSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    csvData: { type: String, required: true }
+    csvData: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now }
 });
 
 const CsvData = mongoose.model('CsvData', csvDataSchema);
@@ -89,11 +90,26 @@ app.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '12h' });
         res.json({ token, username: user.username });
     } catch (err) {
         console.error('Error during login:', err);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+app.get('/verify-token', (req, res) => {
+    const token = req.headers.authorization.split(" ")[1];
+
+    if (!token) {
+        return res.status(401).json({ message: 'Token is required' });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        res.json({ valid: true, userId: decoded.id });
+    } catch (err) {
+        res.status(401).json({ message: 'Invalid or expired token' });
     }
 });
 
